@@ -46,6 +46,7 @@ Command-line interface (no external packages yet)
 __
 
 ## 🗃 File Structure
+``` plaintext
 moody-mood-monster/
 │
 ├── v1/
