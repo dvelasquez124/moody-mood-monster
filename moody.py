@@ -31,8 +31,19 @@ def add_mood():
         writer = csv.writer(file)
         writer.writerow([timestamp, mood, note])
 
-    # Placeholder response - later customize based on mood type
-    print(f"Got it! Moody hopes you feel {mood} again soon.")
+    # Mood-based responses
+    positive_moods = ["happy", "excited", "calm", "grateful"]
+    neutral_moods = ["okay", "meh", "fine"]
+    negative_moods = ["sad", "angry", "tired", "anxious", "overwhelmed", "bad", "mad"]
+
+    if mood in positive_moods:
+        print("Yay! Moody's smiling too 😄")
+    elif mood in neutral_moods:
+        print("I appreciate you checking in today 💛")
+    elif mood in negative_moods:
+        print("Sending you a virtual hug 💙")
+    else: 
+        print("Moody's here with you  💚")
 
 # Helper function - load mood entries
 def load_mood_entries():
