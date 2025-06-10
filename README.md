@@ -35,8 +35,9 @@ Copy
 Edit
 cd v1
 python moody.py
-You’ll need Python 3 installed on your system.
 ```
+You’ll need Python 3 installed on your system.
+
 
 __
 
