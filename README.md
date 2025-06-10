@@ -46,21 +46,18 @@ Command-line interface (no external packages yet)
 __
 
 ## 🗃 File Structure
-plaintext
-Copy
-Edit
 moody-mood-monster/
 │
 ├── v1/
-│   ├── moody.py
-│   └── mood_log.csv
+│ ├── moody.py
+│ └── mood_log.csv
 │
 ├── README.md
 └── .gitignore
 
 __
 
-##🌱 Future Plans
+## 🌱 Future Plans
 v3: Visualize mood trends over time using pandas and matplotlib
 
 v4: Turn Moody into a simple web app with Flask
