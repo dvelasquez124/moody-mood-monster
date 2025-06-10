@@ -55,6 +55,7 @@ moody-mood-monster/
 │
 ├── README.md
 └── .gitignore
+```
 
 __
 
@@ -65,6 +66,6 @@ v4: Turn Moody into a simple web app with Flask
 
 Add streak tracking, mood reminders, and motivational messages
 
-✨ Made with love, Python, and feelings 😄
+### ✨ Made with love, Python, and feelings 😄
 
 
