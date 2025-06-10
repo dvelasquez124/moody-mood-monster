@@ -4,12 +4,12 @@ A playful command-line app that helps you log your moods, reflect on how you’r
 __
 
 ## 📦 Versions
-```
-Version	Features
-v1	CLI app to log mood + optional note, view entries, show mood stats
-v2	Personalized responses based on mood (happy, sad, tired, etc.)
-v3	(coming soon) Data analysis + visualization using Python
-```
+| Version | Features |
+|---------|----------|
+| **v1**  | CLI app to log mood + optional note, view entries, show mood stats |
+| **v2**  | Personalized responses based on mood (happy, sad, tired, etc.) |
+| **v3**  | *(coming soon)* Data analysis + visualization using Python |
+
 
 __
 
