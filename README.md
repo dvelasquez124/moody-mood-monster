@@ -4,23 +4,27 @@ A playful command-line app that helps you log your moods, reflect on how you’r
 __
 
 ## 📦 Versions
+```
 Version	Features
 v1	CLI app to log mood + optional note, view entries, show mood stats
 v2	Personalized responses based on mood (happy, sad, tired, etc.)
 v3	(coming soon) Data analysis + visualization using Python
+```
 
 __
 
 ## 🧠 How It Works
 Moody is a command-line buddy who:
 
-Asks how you're feeling
+```
+- Asks how you're feeling
 
-Logs your mood with a timestamp and optional note
+- Logs your mood with a timestamp and optional note
 
-Stores data in a local .csv file
+- Stores data in a local .csv file
 
-Helps you spot patterns and track emotional trends
+- Helps you spot patterns and track emotional trends
+```
 
 __
 
@@ -66,6 +70,6 @@ v4: Turn Moody into a simple web app with Flask
 
 Add streak tracking, mood reminders, and motivational messages
 
-### ✨ Made with love, Python, and feelings 😄
+## ✨ Made with love, Python, and feelings 😄
 
 
