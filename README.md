@@ -29,12 +29,14 @@ Moody is a command-line buddy who:
 __
 
 ## ▶️ Running the App
+```
 bash
 Copy
 Edit
 cd v1
 python moody.py
 You’ll need Python 3 installed on your system.
+```
 
 __
 
