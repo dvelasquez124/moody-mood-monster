@@ -23,6 +23,30 @@ print(df.info())
 
 import matplotlib.pyplot as plt
 
+# Convert the 'date' column to datetime format
+df['date'] = pd.to_datetime(df['date']).dt.date
+
+# Group by date and mood
+daily_moods = df.groupby(['date', 'mood']).size().unstack(fill_value=0)
+
+# fill in missing days with 0s
+full_index = pd.date_range(start=df['date'].min(), end=df['date'].max())
+daily_moods.index = pd.to_datetime(daily_moods.index)
+daily_moods = daily_moods.reindex(full_index, fill_value=0)
+
+
+# Plot mood trends over time
+daily_moods.plot(figsize=(10, 6), marker='o', linewidth=2, alpha=0.7)
+plt.title('Mood Trends Over Time')
+plt.xlabel('Date')
+plt.ylabel('Mood Count')
+plt.legend(title="Mood")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+
+
 # Count each mood
 mood_counts = df['mood'].value_counts()
 
