@@ -16,6 +16,7 @@ def main():
             show_stats()
         elif command == "quit":
             print("Bye for now!")
+            break # exists loop
         else:
             print("Sorry, Moody doesn't understand this request.")
 
