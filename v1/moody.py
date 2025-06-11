@@ -50,6 +50,7 @@ def load_mood_entries():
     try:
         with open("mood_log.csv", mode="r", newline="") as file:
             reader = csv.reader(file)
+            next(reader) # Skip the header row: date, mood, notes
             entries = list(reader)
             return entries
     except FileNotFoundError:
@@ -65,6 +66,8 @@ def view_moods():
     
     print("\nYour Mood Entries:")
     for row in entries:
+        if len(row) != 3:
+            continue
         timestamp, mood, note = row
         print(f"{timestamp} - {mood.capitalize()} - {note if note else 'No note'}")
 
@@ -79,6 +82,8 @@ def show_stats():
     mood_counts = {}
 
     for row in entries:
+        if len(row) != 3:
+            continue
         _, mood, _ = row
         mood_counts[mood] = mood_counts.get(mood, 0) + 1
 
