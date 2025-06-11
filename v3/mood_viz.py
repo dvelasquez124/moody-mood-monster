@@ -13,6 +13,21 @@ except FileNotFoundError:
 print("\n📋 First 5 entries:")
 print(df.head())
 
-# Chec the structure and column types
+# Check the structure and column types
 print("\n📊 Data summary:")
 print(df.info())
+
+import matplotlib.pyplot as plt
+
+# Count each mood
+mood_counts = df['mood'].value_counts()
+
+# Plot as a bar chart
+plt.figure(figsize=(8, 5))
+mood_counts.plot(kind='bar')
+plt.title("Mood Frequency")
+plt.xlabel('Mood')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
