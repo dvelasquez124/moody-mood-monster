@@ -1,7 +1,25 @@
-USER_NAME = "Diana"
-
 import os
 import pandas as pd
+import matplotlib.pyplot as plt
+
+
+# User settings
+USER_NAME = "Diana"
+
+# Mood colors dictionary
+MOOD_COLORS = {
+    "happy": "#FFD700",    # gold/yellow
+    "sad": "#1E90FF",      # dodger blue
+    "tired": "#A9A9A9",    # dark gray
+    "angry": "#FF4500",    # orange-red
+    "anxious": "#8A2BE2",  # blue violet
+    "calm": "#3CB371",     # medium sea green
+    "excited": "#FF69B4",  # hot pink
+    "mad": "#FF6347",      # tomato red
+    "meh": "#808080",      # gray
+    "confused": "#9370DB", # medium purple
+    "okay": "#20B2AA"      # light sea green
+}
 
 # Dynamically get the path to mood_log.csv
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -23,8 +41,6 @@ print(df.head())
 print("\n📊 Data summary:")
 print(df.info())
 
-import matplotlib.pyplot as plt
-
 # Convert the 'date' column to datetime format
 df['date'] = pd.to_datetime(df['date']).dt.date
 
@@ -36,9 +52,15 @@ full_index = pd.date_range(start=df['date'].min(), end=df['date'].max())
 daily_moods.index = pd.to_datetime(daily_moods.index)
 daily_moods = daily_moods.reindex(full_index, fill_value=0)
 
+# Get mood columns that are in the color dict (ignore unknown moods for now)
+mood_columns =[mood for mood in daily_moods.columns if mood in MOOD_COLORS]
 
-# Plot mood trends over time
-daily_moods.plot(figsize=(10, 6), marker='o', linewidth=2, alpha=0.7)
+# Build color list
+colors = [MOOD_COLORS[mood] for mood in mood_columns]
+
+# Plot mood trends over time (line chart)
+ax = daily_moods[mood_columns].plot(figsize=(10, 6), marker='o', linewidth=2, alpha=0.7, color=colors)
+
 plt.title(f'Mood Trends Over Time for {USER_NAME}')
 plt.xlabel('Date')
 plt.ylabel('Mood Count')
