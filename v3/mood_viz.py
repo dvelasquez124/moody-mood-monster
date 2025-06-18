@@ -1,3 +1,5 @@
+USER_NAME = "Diana"
+
 import os
 import pandas as pd
 
@@ -37,7 +39,7 @@ daily_moods = daily_moods.reindex(full_index, fill_value=0)
 
 # Plot mood trends over time
 daily_moods.plot(figsize=(10, 6), marker='o', linewidth=2, alpha=0.7)
-plt.title('Mood Trends Over Time')
+plt.title(f'Mood Trends Over Time for {USER_NAME}')
 plt.xlabel('Date')
 plt.ylabel('Mood Count')
 plt.legend(title="Mood")
@@ -53,7 +55,7 @@ mood_counts = df['mood'].value_counts()
 # Plot as a bar chart
 plt.figure(figsize=(8, 5))
 mood_counts.plot(kind='bar')
-plt.title("Mood Frequency")
+plt.title(f'Mood Frequency for {USER_NAME}')
 plt.xlabel('Mood')
 plt.ylabel('Count')
 plt.xticks(rotation=45)
