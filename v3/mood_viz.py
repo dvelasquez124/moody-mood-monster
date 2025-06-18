@@ -1,10 +1,14 @@
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
+from datetime import date
 
 
 # User settings
 USER_NAME = "Diana"
+
+# Store today's date
+today_str = date.today().isoformat()
 
 # Mood colors dictionary
 MOOD_COLORS = {
@@ -24,6 +28,12 @@ MOOD_COLORS = {
 # Dynamically get the path to mood_log.csv
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CSV_PATH = os.path.join(BASE_DIR, '..', 'mood_log.csv')
+
+# Define exports folder
+EXPORTS_DIR = os.path.join(BASE_DIR, 'exports')
+
+# If exports does not exist yet, create it
+os.makedirs(EXPORTS_DIR, exist_ok=True)
 
 # Try to load the mood log
 try:
@@ -67,6 +77,7 @@ plt.ylabel('Mood Count')
 plt.legend(title="Mood")
 plt.grid(True)
 plt.tight_layout()
+plt.savefig(os.path.join(EXPORTS_DIR, f'mood_trends_{today_str}.png'))
 plt.show()
 
 
@@ -82,4 +93,5 @@ plt.xlabel('Mood')
 plt.ylabel('Count')
 plt.xticks(rotation=45)
 plt.tight_layout()
+plt.savefig(os.path.join(EXPORTS_DIR, f'mood_frequency_{today_str}.png'))
 plt.show()
