@@ -62,24 +62,27 @@ full_index = pd.date_range(start=df['date'].min(), end=df['date'].max())
 daily_moods.index = pd.to_datetime(daily_moods.index)
 daily_moods = daily_moods.reindex(full_index, fill_value=0)
 
-# Get mood columns that are in the color dict (ignore unknown moods for now)
-mood_columns =[mood for mood in daily_moods.columns if mood in MOOD_COLORS]
+# --- Top 3 Mood Trends Chart --- #
 
-# Build color list
-colors = [MOOD_COLORS[mood] for mood in mood_columns]
+# Find top 3 moods:
+top_moods = df['mood'].value_counts().nlargest(3).index
 
-# Plot mood trends over time (line chart)
-ax = daily_moods[mood_columns].plot(figsize=(10, 6), marker='o', linewidth=2, alpha=0.7, color=colors)
+# Filter trend data for top 3 moods:
+filtered = daily_moods[top_moods]
 
-plt.title(f'Mood Trends Over Time for {USER_NAME}')
+# Plot top 3 mood trends
+ax = filtered.plot(figsize=(10, 6), marker='o', linewidth=2, alpha=0.7)
+
+plt.title(f'Top 3 Mood Trends Over Time for {USER_NAME}')
 plt.xlabel('Date')
 plt.ylabel('Mood Count')
 plt.legend(title="Mood")
 plt.grid(True)
 plt.tight_layout()
-plt.savefig(os.path.join(EXPORTS_DIR, f'mood_trends_{today_str}.png'))
-plt.show()
 
+# Save with date
+plt.savefig(os.path.join(EXPORTS_DIR, f'mood_trends_top3_{today_str}.png'))
+plt.show()
 
 
 # Count each mood
