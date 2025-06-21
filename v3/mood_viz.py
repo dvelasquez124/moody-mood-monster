@@ -82,6 +82,7 @@ plt.tight_layout()
 
 # Save with date
 plt.savefig(os.path.join(EXPORTS_DIR, f'mood_trends_top3_{today_str}.png'))
+print(f"✅ Saved: moods_trends_top3_{today_str}.png")
 plt.show()
 
 
@@ -96,5 +97,8 @@ plt.xlabel('Mood')
 plt.ylabel('Count')
 plt.xticks(rotation=45)
 plt.tight_layout()
+
+# Save with date
 plt.savefig(os.path.join(EXPORTS_DIR, f'mood_frequency_{today_str}.png'))
+print(f"✅ Saved: mood_frequency_{today_str}.png")
 plt.show()
